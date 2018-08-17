@@ -1,6 +1,7 @@
 'use strict';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const cleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const env = process.env.NODE_ENV;
 const isDevMode = env == 'development';
@@ -37,6 +38,12 @@ function getBaseConfiguration(options) {
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 template: path.join(__dirname, '..', 'src/index.html')
+            }),
+            new cleanWebpackPlugin([
+                'scripts'
+            ], {
+                root: distPath,
+                verbose: true
             })
         ],
         externals: {
