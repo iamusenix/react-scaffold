@@ -1,0 +1,22 @@
+@import './_variables';
+
+@mixin isMobile() {
+    html.mobile{
+        @content;
+    }
+}
+@mixin notMobile() {
+    html:not(.mobile){
+        @content;
+    }
+}
+@mixin isPadSize(){
+  @media screen and (min-width:$xt-mobile-screen) and (max-width:$xt-pad-screen){
+      @content;
+  }
+}
+@mixin isMobileSize(){
+  @media not all and (min-width:$xt-mobile-screen){
+      @content;
+  }
+}

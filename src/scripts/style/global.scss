@@ -1,0 +1,52 @@
+@import './_mixins';
+@import './_variables';
+
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei","微软雅黑","宋体",Helvetica,Tahoma,Arial,sans-serif;
+}
+html{
+  font-size:10px;
+}
+body{
+  font-size: 1.6rem;
+}
+
+html, body{
+    height: 100%;
+    width:100%;
+    background-color: white;
+    margin:0px;
+    padding:0px;
+    text-rendering: optimizeLegibility!important;
+    -webkit-font-smoothing: antialiased!important;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+@include notMobile(){
+  min-width: 1024px;
+}
+@include isMobile(){
+  
+}
+body>object{
+  //make sure plugin object will not interrupt the whole layout,especially in login page. 
+  position: absolute;
+}
+input:focus {
+  outline: none;
+}
+a{
+  background: transparent;
+  text-decoration: none;
+  &:focus, &:active, &:hover{
+    outline: none;
+    text-decoration: none;
+  }
+}
+#react-app{
+    height: 100%;
+}
